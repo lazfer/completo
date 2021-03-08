@@ -42,8 +42,7 @@ import { ViajeModule } from './viaje/viaje.module';
     AngularfireModule,
     AllComponentsModule,
     ViajeModule,
-    AppRoutingModule,
-   
+    AppRoutingModule
    
   ],
   providers: [WebAPIService],
