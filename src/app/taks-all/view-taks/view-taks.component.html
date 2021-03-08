@@ -1,0 +1,14 @@
+<div class="row taks no-gutters mb-2 block-principal">
+    <div class="col-2 block-date">
+    {{ taksp.fecha | date: 'dd/MMM/yyyy'}}
+    </div>
+    <div class="block-des" 
+    [ngClass]="{'col-8': !taksp.completado, 'col-10 taks-completada rounded' : taksp.completado}"
+    [title]="taksp.descripcion">
+        {{ taksp.descripcion }}
+    </div>
+    <div *ngIf="!taksp.completado" class="col-2 block-btn rounded-right text-right">
+        <i class="fa fa-check text-success icon-action" aria-hidden="true" (click)="checkTaks(index)"></i>
+        <i class="fa fa-remove text-danger icon-action" aria-hidden="true" (click)="removeTaks(index)"></i>
+    </div>
+</div>

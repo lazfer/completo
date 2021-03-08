@@ -1,0 +1,92 @@
+<div class="container-fluid" *ngIf="!loader">
+<div class="row no-gutters">
+    <div class="col-12">
+        <div class="row">
+            <div class="col-12">
+                <button class="btn btn-block btn-primary mb-4 mt-4" (click)="hideShowFilter()"> {{showFilter? 'Ocultar filtro': 'Mostrar Filtro'}} </button>
+            </div>
+        </div>
+        <div class="row" *ngIf="showFilter">
+            <div class="col-12">
+                <form (ngSubmit)="filterData()">
+                <div class="row form-group">
+                    <div class="col-4">
+                        <label for="search"> Buscar por</label>
+                        <select name="search" id="search" class="custom-select" [(ngModel)] = "filter.searchBy" >
+                            <option value="name"> Nombre </option>
+                            <option value="glass"> Vaso </option>
+                            <option value="ingredient"> Ingrediente </option>
+                            <option value="category"> Categoria </option>
+                        </select>
+                    </div>
+                    <div class="col-4" [ngSwitch]="filter.searchBy">
+                        <label *ngSwitchCase="'name'" for="value"> Nombre </label>
+                        <label *ngSwitchCase="'glass'" for="value"> Vaso </label>
+                        <label *ngSwitchCase="'ingredient'" for="value"> Ingredientes </label>
+                        <label *ngSwitchCase="'category'" for="value"> Categoria </label>
+                        <input type="text" 
+                        name="value" 
+                        id="value" 
+                        class="form-control" 
+                        [(ngModel)]="filter.value">
+                    </div>
+                    <div class="col-4 align-self-end">
+                        <button class="btn btn-primary btn-block" type="submit"> Filtrar </button>
+                    </div>
+                </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row" *ngIf="listCocktail.length > 0">
+        <div class="col-lg-3 col-md-4 col-sm-6 col-12 mt4 mb4" *ngFor="let cocktail of listCocktail |
+        paginate: {
+        itemsPerPage: items,
+        currentPage: page }">
+        <div class="card">
+            <img [src]="cocktail.img" class="card-img-top img-fluid w-100">
+            <div class="card-body">
+                <p class="card-text">{{ cocktail.name }}</p>
+            </div>
+            <div class="card-footer">
+                <a href="#" 
+                class="btn btn-block btn-primary text-light" 
+                role="button" 
+                [routerLink]="['./detail-cocktail', cocktail.id]" 
+                routerLinkActive="router-link-active"> ver detalle</a>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <div class="row mt-5" *ngIf="listCocktail.length > items ">
+        <div class="col-12">
+            <pagination-controls 
+            previousLabel="Anterior"
+            nextLabel="Siguiente"
+            (pageChange)="page = $event">
+        </pagination-controls>
+        </div>
+    </div>
+
+    <div class="row no-gutters w-100" *ngIf="showMessage">
+<div class="col-12">
+    <div class="alert alert-info">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true"> &times;</button>
+        <strong>No se encontraron registros para mostrar </strong>
+    </div>
+</div>
+    </div>
+
+</div>
+
+</div>
+
+<div class="h-100" *ngIf="loader">
+    <div class="spinner">
+        <img src="assets/img/spinner.gif">
+    </div>
+</div>
+

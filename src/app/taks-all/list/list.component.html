@@ -1,0 +1,52 @@
+<div class="row rounded" id="list-taks">
+    <div class="col-12">
+        <div class="row">
+          <div class="col-12">
+              <h1> Tareas Pendientes </h1>
+              <div class="div col-12" *ngIf="tareasPendientes.length > 0">
+                  <ng-container *ngFor="let taksp of tareasPendientes; let index = index">
+                    <app-view-taks
+                    [taksp]="taksp"
+                    [index]="index"
+                    (addtaks)="addtaksemit($event)"
+                    (removetaks)="removetaksemit($event)">
+                </app-view-taks>
+                  </ng-container>
+              </div>
+              <div *ngIf="tareasPendientes.length === 0 && !verInputTarea">
+                 <span> !Felicidades¡ no hay tareas pendientes </span>
+              </div>
+              <button class="btn btn-primary" *ngIf="!verInputTarea" (click)="verInputTarea = true;"> <i class="fa fa-plus" aria-hidden="true" ></i> Añadir Tareas </button>
+
+              <div class="input-group mt-2 mb-2" *ngIf="verInputTarea">
+                <input type="text" class="form-control" #taks (keyup.enter)="guardarTarea(taks.value)">
+                <span class="input-group-btn">
+                    <button class="btn btn-success" (click)="guardarTarea(taks.value)"> Añadir </button>
+                </span>
+              </div>
+              <div class="alert alert-danger" *ngIf="errorInputTarea">
+                <strong> Debes de ingresar un valor </strong>
+            </div>
+              
+          </div>  
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <h1> Tareas Completadas </h1>
+                <div *ngIf="tareasCompletadas.length === 0">
+                   <span> No hay tareas completadas </span>
+                </div>
+                <button class="btn btn-primary mb-2" *ngIf="mostrarCompletadas" (click)="cambiarMostrarTarea()"> <i class="fa fa-eye-slash" aria-hidden="true"></i> Ocultar Tareas </button>
+                <button class="btn btn-primary mb-2" *ngIf="!mostrarCompletadas" (click)="cambiarMostrarTarea()"> <i class="fa fa-eye" aria-hidden="true"></i> Mostrar Tareas </button>
+                <div class="div col-12" *ngIf="tareasCompletadas.length > 0 && mostrarCompletadas">
+                    <ng-container *ngFor="let taksp of tareasCompletadas; let index = index">
+                      <app-view-taks
+                      [taksp]="taksp"
+                      [index]="index">
+                  </app-view-taks>
+                    </ng-container>
+                </div>
+            </div>  
+          </div>
+    </div>
+</div>

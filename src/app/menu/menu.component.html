@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" routerLink=""> Mi App</a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item"> <a class="nav-link" [routerLink]="['/usuarios']" routerLinkActive="active"> Usuarios </a> </li>
+            <li class="nav-item"> <a class="nav-link" [routerLink]="['/post']" routerLinkActive="active"> Post </a>  </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarComponentes" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Componentes </a>
+                <div class="dropdown-menu" aria-labelledby="navbarComponentes">
+                    <a class="dropdown-item" [routerLink]="['/componentes/pipe']" routerLinkActive="active"> Pipe </a>
+                    <a class="dropdown-item" [routerLink]="['/componentes/promesas']" routerLinkActive="active"> Promesas </a>
+                    <a class="dropdown-item" [routerLink]="['/componentes/observables']" routerLinkActive="active"> Observables </a>
+                </div>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" [routerLink]="[{outlets: {popup: ['panico']}}]">Panico</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarProyecto" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Proyecto Angular </a>
+                <div class="dropdown-menu" aria-labelledby="navbarProyecto">
+                    <a class="dropdown-item" [routerLink]="['/listaTarea']" routerLinkActive="active"> Lista Tarea </a>
+                    <a class="dropdown-item" [routerLink]="['/agenda']" routerLinkActive="active"> Agenda </a>
+                    <a class="dropdown-item" [routerLink]="['/cocktail']" routerLinkActive="active"> Cocktail </a>
+                    <a class="dropdown-item" [routerLink]="['/viaje']" routerLinkActive="active"> Viaje </a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarAfir" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Angular Fire </a>
+                <div class="dropdown-menu" aria-labelledby="navbarAfir">
+                    <a class="dropdown-item" [routerLink]="['angularfire/angularfire']" routerLinkActive="active"> Inicio </a>
+                    <a class="dropdown-item" [routerLink]="['angularfire/goty']" routerLinkActive="active"> Votar </a>
+                </div>
+             </li>
+        </ul>
+    </div>
+</nav>
+

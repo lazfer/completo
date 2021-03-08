@@ -1,0 +1,77 @@
+<div class="row" id="list-contact">
+    <div class="col-12">
+
+<div class="row">
+    <div class="col-12">
+        <h2>Lista contacto </h2>
+    </div>
+</div>
+<ng-container *ngIf="listaContacto.length > 0">
+<div class="row">
+    <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-4" *ngFor="let contacto of listaContacto; let index = index">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title"> {{contacto.nombre + ", " + contacto.apellido + " ( "+ contacto.sexo+")" }}</h5>
+                <p class="card-text">{{ contacto.descripcion }}</p>
+            </div>
+        <div class="card-footer">
+            <a class="btn btn-block btn-primary text-light" data-toggle="modal" [attr.data-target]="'#modal_'+index" role="buttom"> Ver detalle </a>
+        </div>
+        </div>
+        <div [attr.id]="'modal_'+index" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                   <div class="modal-header">
+                       <h5 class="modal-title">
+                        {{ contacto.nombre + ", " + contacto.apellido }}
+                       </h5>
+                       <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                           <span arial-hidden="true"> &times; </span>
+                       </button>
+                    </div>
+                       <div class="modal-body">
+                           <div class="row">
+                               <div class="col-3">
+                                <img [src]="contacto.sexo === 'Hombre' ? 'assets/img/hombre.jpg': 'assets/img/mujer.jpg' " alt="" class="img-fluid">
+                               </div>
+                               <div class="col-9">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <span> {{ contacto.descripcion ? contacto.descripcion : 'sin descripción' }}</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                   <div class="col-6">
+                                    <span class="d-block"> Telefono </span>
+                                    <span class="d-block"> {{ contacto.telefono}} </span>
+                                   </div> 
+                                   <div class="col-6">
+                                    <span class="d-block"> Email </span>
+                                    <span class="d-block ellipsis"> {{ contacto.email}} </span>      
+                                </div> 
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 mt4">
+                                        {{ contacto.compania ? 'Empresa ' + contacto.compania : 'Sin empresa'}}
+                                    </div>
+                                </div>
+                               </div>
+                           </div>
+                       </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</ng-container>
+
+<ng-container *ngIf="listaContacto.length === 0">
+<div class="alert alert-info" role="alert">
+   No se encontraron registros para mostrar
+</div>
+</ng-container>
+
+    </div>
+
+
+</div>

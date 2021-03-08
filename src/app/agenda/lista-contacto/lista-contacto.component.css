@@ -1,0 +1,4 @@
+#list-contact .ellipsis{
+    text-overflow: ellipsis;
+    overflow: hidden;
+}

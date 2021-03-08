@@ -1,0 +1,31 @@
+.taks > div{
+    padding: 10px;
+}
+.block-principal{
+    background-color: #fff;
+}
+.block-date{
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    border-left: 1px solid #000;
+    text-align: center;
+}
+.block-des{
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.block-btn{
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    border-right: 1px solid #000;
+}
+.taks-completada{
+    border-right: 1px solid #000;
+}
+.icon-action{
+    font-size: 25px;
+    cursor: pointer;
+    margin-right: 5px;
+}

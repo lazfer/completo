@@ -1,0 +1,27 @@
+[{
+  "nombre": "Juan",
+  "apellido": "Luna",
+  "descripcion": "Profesor de UI",
+  "sexo": "Hombre",
+  "email": "test@gmail.com",
+  "telefono": "5543233454",
+  "compania": "Sector UI"  
+},
+{
+    "nombre": "Leticia",
+    "apellido": "Ruiz",
+    "descripcion": "Cocinera",
+    "sexo": "Mujer",
+    "email": "letruiz@gmail.com",
+    "telefono": "5523124576",
+    "compania": "Kitchen hell"  
+  },
+  {
+    "nombre": "Pedro",
+    "apellido": "Ramirez",
+    "descripcion": "Policia",
+    "sexo": "Hombre",
+    "email": "ppt@hotmail.com",
+    "telefono": "5522456789",
+    "compania": "SSP"  
+  }]

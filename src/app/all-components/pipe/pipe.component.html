@@ -1,0 +1,10 @@
+<div class="container-fluid pt-3">
+<ng-container>
+<input type="text" (input)="valor($event)" placeholder="Ingresa nombre">
+<button (click)="addNombre()"> Add Name </button>
+<br>
+<div *ngFor=" let item of nombres">
+    {{ item  }}
+</div>
+</ng-container>
+</div>
